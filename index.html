@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chácara Pitomba - Seu refúgio em Tucuruí</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        forest: {
+                            50: '#f2f7f2',
+                            100: '#e1ebe0',
+                            600: '#4a6741', /* Verde Grama */
+                            700: '#3d5235',
+                            800: '#2d3d27',
+                            900: '#1a2417',
+                        },
+                        accent: '#d4a373', /* Cor harmônica (palha/areia) */
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap');
+        
+        .glass-nav {
+            background: rgba(255, 255, 255);
+            backdrop-filter: blur(12px);
+        }
+
+        .hero-gradient {
+            background: linear-gradient(rgba(26, 36, 23, 0.6), rgba(26, 36, 23, 0.6)), url('assets/2.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .img-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .instagram-btn {
+            position: relative;
+            display: inline-block;
+            padding: 16px 40px;
+            border-radius: 999px;
+            font-weight: bold;
+            font-size: 18px;
+            color: white;
+            border: 2px solid rgba(255,255,255,0.5);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            z-index: 1;
+            }
+
+            /* Gradiente animado */
+            .instagram-btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            background: linear-gradient(
+                45deg,
+                #f58529,
+                #dd2a7b,
+                #8134af,
+                #515bd4,
+                #f58529
+            );
+            background-size: 300% 300%;
+            animation: instagramGradient 6s ease infinite;
+            opacity: 0.9;
+            }
+
+            /* Glow suave */
+            .instagram-btn::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            z-index: -2;
+            background: inherit;
+            filter: blur(12px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            }
+
+            /* Hover */
+            .instagram-btn:hover {
+            transform: scale(1.05);
+            border-color: transparent;
+            }
+
+            .instagram-btn:hover::after {
+            opacity: 1;
+            }
+            .whatsapp-btn {
+                position: relative;
+                display: inline-block;
+                padding: 16px 40px;
+                border-radius: 999px;
+                font-weight: bold;
+                font-size: 18px;
+                background: #25D366;
+                color: white;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+                overflow: hidden;
+                transition: all 0.3s ease;
+                }
+
+                /* Pulso contínuo (leve) */
+                .whatsapp-btn {
+                animation: pulseWhatsapp 2.5s infinite;
+                }
+
+                @keyframes pulseWhatsapp {
+                0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
+                70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+                100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+                }
+
+                /* Hover (elevação + destaque) */
+                .whatsapp-btn:hover {
+                transform: translateY(-3px) scale(1.05);
+                background: #1ebe5d;
+                }
+
+                /* Ripple effect */
+                .whatsapp-btn::after {
+                content: '';
+                position: absolute;
+                width: 300%;
+                height: 300%;
+                top: 50%;
+                left: 50%;
+                background: rgba(255,255,255,0.2);
+                transform: translate(-50%, -50%) scale(0);
+                border-radius: 50%;
+                transition: transform 0.6s ease;
+                }
+
+                .whatsapp-btn:hover::after {
+                transform: translate(-50%, -50%) scale(1);
+                }
+
+            /* Animação do gradiente */
+            @keyframes instagramGradient {
+                0% { background-position: 0% 50%; }
+                50% { background-position: 100% 50%; }
+                100% { background-position: 0% 50%; }
+            }
+    </style>
+</head>
+<body class="bg-forest-50 text-forest-900 font-sans">
+
+    <header class="fixed w-full top-0 z-50 glass-nav border-b border-forest-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-center h-20">
+                <a href="#" class="flex items-center gap-2">
+                    <span class="text-forest-600 text-2xl"><i class="fas fa-leaf"></i></span>
+                    <span class="font-serif text-2xl tracking-tight text-forest-800">Chácara Pitomba</span>
+                </a>
+
+                <nav class="hidden md:flex space-x-10 font-semibold text-forest-700">
+                    <a href="#inicio" class="hover:text-forest-600 transition-colors">Início</a>
+                    <a href="#memorias" class="hover:text-forest-600 transition-colors">Nossas Memórias</a>
+                    <a href="#localizacao" class="hover:text-forest-600 transition-colors">Onde Estamos</a>
+                </nav>
+
+                <div class="hidden md:block">
+                    <a href="https://wa.me/5591992896913" target="_blank" class="bg-forest-600 hover:bg-forest-700 text-white px-6 py-2.5 rounded-full transition-all shadow-md">
+                        Reservar Agora
+                    </a>
+                </div>
+
+                <button id="mobile-btn" class="md:hidden text-forest-800 text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-forest-50 px-6 py-6 space-y-4 shadow-xl">
+            <a href="#inicio" class="block text-lg font-medium">Início</a>
+            <a href="#memorias" class="block text-lg font-medium">Nossas Memórias</a>
+            <a href="#localizacao" class="block text-lg font-medium">Onde Estamos</a>
+            <a href="https://wa.me/5591992896913" class="block w-full text-center bg-forest-600 text-white py-3 rounded-xl font-bold">WhatsApp</a>
+        </div>
+    </header>
+
+    <section id="inicio" class="hero-gradient min-h-screen flex items-center justify-center text-center px-4">
+        <div class="max-w-4xl" data-aos="fade-up" data-aos-duration="1000">
+            <span class="inline-block px-4 py-1.5 mb-6 rounded-full bg-forest-600/20 text-forest-100 border border-forest-100/30 backdrop-blur-sm text-sm font-semibold uppercase tracking-widest">
+                Tucuruí - Pará
+            </span>
+            <h1 class="font-serif text-5xl md:text-7xl text-white mb-6 leading-tight">
+                Onde a natureza encontra o seu lazer.
+            </h1>
+            <p class="text-forest-100 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
+                Localizada na orla da Nova Matinha, a Chácara Pitomba oferece o ambiente perfeito para momentos inesquecíveis com quem você ama.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://wa.me/5591992896913" class="bg-forest-800 text-white border hover:opacity-80 px-10 py-4 rounded-full font-bold text-lg shadow-2xl transition-all hover:scale-105">
+                    <i class="fab fa-whatsapp mr-2"></i> Agende sua Visita
+                </a>
+                <a href="https://www.instagram.com/chacarapitomba/"
+                    target="_blank"
+                    class="instagram-btn">
+                    <i class="fab fa-instagram mr-2"></i>
+                    Ver Instagram
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-forest-50">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h2 class="font-serif text-4xl text-forest-800 mb-6">Estrutura Completa</h2>
+            <p class="text-gray-600 mb-12 text-lg max-w-2xl mx-auto">
+                Ideal para famílias, eventos e momentos de lazer com total conforto.
+            </p>
+
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                <div class="flex flex-col items-center">
+                    <i class="fas fa-toilet text-3xl text-forest-600 mb-3"></i>
+                    <span class="font-semibold">2 Banheiros</span>
+                </div>
+
+                <div class="flex flex-col items-center">
+                    <i class="fas fa-utensils text-3xl text-forest-600 mb-3"></i>
+                    <span class="font-semibold">Cozinha Completa</span>
+                </div>
+
+                <div class="flex flex-col items-center">
+                    <i class="fas fa-water text-3xl text-forest-600 mb-3"></i>
+                    <span class="font-semibold">Caiaque</span>
+                </div>
+
+                <div class="flex flex-col items-center">
+                    <i class="fas fa-child text-3xl text-forest-600 mb-3"></i>
+                    <span class="font-semibold">Área Infantil</span>
+                </div>
+
+                <div class="flex flex-col items-center">
+                    <i class="fas fa-volleyball-ball text-3xl text-forest-600 mb-3"></i>
+                    <span class="font-semibold">Espaço para Vôlei</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="memorias" class="py-24 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                <div class="w-2xl" data-aos="fade-right">
+                    <h2 class="font-serif text-4xl md:text-5xl text-forest-800 mb-4">Nossas Memórias</h2>
+                    <p class="text-gray-600 text-lg">Registros de quem já viveu dias incríveis aqui na Chácara Pitomba. Venha fazer parte dessa história.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="img-card group relative overflow-hidden rounded-3xl shadow-lg" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="assets/cima.png" alt="Família" class="w-full h-[450px] object-cover transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-forest-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-8">
+                        <span class="text-white font-medium italic">Visão completa</span>
+                    </div>
+                </div>
+                <div class="img-card group relative overflow-hidden rounded-3xl shadow-lg" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="assets/vista.png" alt="Diversão" class="w-full h-[450px] object-cover transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-forest-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-8">
+                        <span class="text-white font-medium italic">Conexão com a natureza</span>
+                    </div>
+                </div>
+                <div class="img-card group relative overflow-hidden rounded-3xl shadow-lg" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="assets/casamento.png" alt="Lazer na Pitomba" class="w-full h-[450px] object-cover transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-forest-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-8">
+                        <span class="text-white font-medium italic">Momentos únicos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="localizacao" class="py-24 bg-forest-100/50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="bg-white rounded-[3rem] shadow-xl overflow-hidden flex flex-col lg:flex-row border border-forest-100">
+                <div class="lg:w-1/2 p-12 md:p-16 flex flex-col justify-center">
+                    <h2 class="font-serif text-4xl text-forest-800 mb-6">Como chegar</h2>
+                    <p class="text-gray-600 mb-8 text-lg text-justify">
+                        Estamos localizados em um ponto privilegiado de Tucuruí, Pará. 
+                        Bem na orla da Nova Matinha, com fácil acesso e uma vista incrível.
+                    </p>
+                    
+                    <div class="space-y-6 mb-10">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-forest-50 rounded-full flex items-center justify-center text-forest-600 shrink-0">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-forest-800">Endereço</h4>
+                                <p class="text-gray-600">Orla da Nova Matinha, Tucuruí - PA</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-forest-50 rounded-full flex items-center justify-center text-forest-600 shrink-0">
+                                <i class="fab fa-instagram"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-forest-800">Instagram</h4>
+                                <a href="https://www.instagram.com/chacarapitomba/" class="text-forest-600 hover:underline">@chacarapitomba</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="https://l.instagram.com/?u=https%3A%2F%2Fmaps.app.goo.gl%2FN7DmW61rnoGzjQSN6%3Futm_source%3Dig%26utm_medium%3Dsocial%26utm_content%3Dlink_in_bio%26fbclid%3DPAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGn8lTusy0ZQ2fD_ZRj0ZPPik5xTxZBiwHalp198gLPjzhKRGDy81OW-9iTbg8_aem_LRnxxGB9Vhkew3pza5sKfA&e=AT6klrs023LidgPjZiAgt04zE45EUwKR9jyw31U9Rgwl94G8pajfHSz4GB3gveZKEDizpjhCsrNEplf89MMhMtLpUeCQRho1Y486UPiWgA" target="_blank" class="inline-flex items-center gap-2 text-forest-700 font-bold hover:gap-4 transition-all">
+                        ABRIR NO GOOGLE MAPS <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="lg:w-1/2 h-[450px] lg:h-auto overflow-hidden">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3981.042405788783!2d-49.6638274!3d-3.800904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x92bf8bfdfbd27d5b%3A0x196ce6d205e1e11f!2sch%C3%A1cara%20Pitomba!5e0!3m2!1spt-BR!2sbr!4v1776881240920!5m2!1spt-BR!2sbr" 
+                        class="w-full h-full border-0" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-forest-900 text-forest-100 py-12">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h3 class="font-serif text-3xl mb-4 text-white">Chácara Pitomba</h3>
+            <p class="mb-5 text-gray-200">Seu refúgio natural em Tucuruí.</p>
+            <div class="flex justify-center space-x-6 mb-5">
+                <a href="https://wa.me/5591992896913" class="text-3xl hover:text-white transition hover:scale-125"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.instagram.com/chacarapitomba/" class="text-3xl hover:text-white transition hover:scale-125"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div class="border-t border-forest-800 text-gray-300 pt-8 text-sm">
+                &copy; 2026 Chácara Pitomba - Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/5591992896913" target="_blank" class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform">
+        <i class="fab fa-whatsapp text-3xl"></i>
+    </a>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: true });
+
+        const btn = document.getElementById('mobile-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Fecha menu ao clicar nos linksv
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => menu.classList.add('hidden'));
+        });
+    </script>
+</body>
+</html>
+
