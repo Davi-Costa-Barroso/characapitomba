@@ -46,7 +46,12 @@
             background: linear-gradient(rgba(26, 36, 23, 0.6), rgba(26, 36, 23, 0.6)), url('assets/2.png');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
+        }
+
+        @media (min-width: 768px) {
+            .hero-gradient {
+                background-attachment: fixed;
+            }
         }
 
         .img-card:hover img {
